@@ -18,3 +18,36 @@ body
 	width: 600px;
 	height: 300px;
 }
+
+#logo_grid
+{
+	margin: 0 auto;
+	width: 600px;
+	height: 61px;
+	position: relative;
+	float: left;
+}
+
+#logo_background
+{
+	position:absolute;
+}
+
+#logo_wrap
+{
+	margin: 0 auto;
+	width: 250px;
+	height: 61px;
+	position: relative;
+	overflow: hidden;
+}
+
+#logo_mask
+{
+	margin: 0 auto;
+	width: 250px;
+	height: 61px;
+	position: absolute;
+	left: 0;
+	top: 0;
+}

@@ -17,8 +17,11 @@ define( '_SSHOW_DIR_' , str_replace( 'config\\' , '' , str_replace( 'config/' , 
 define( '_SSHOW_URL_' , '' );
 define( '_SSHOW_VERSION_' , '0.01b' );
 
-define( '_SSHOW_JQUERY_VERSION_' , '1.11.1' );
 
+/*
+	Import jQuery
+*/
+define( '_SSHOW_JQUERY_VERSION_' , '1.11.1' );
 // jquery CDN 이용 시 설정을 바꿀 수 있다.
 define( '_SSHOW_JQUERY_DIR_' , _SSHOW_DIR_.'common/src/jquery.js' );
 define( '_SSHOW_JQUERY_URL_' , _SSHOW_URL_.'common/src/jquery.js' );

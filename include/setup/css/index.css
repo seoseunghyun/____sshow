@@ -1,10 +1,20 @@
-<?php
 /*
 	SSHOW ( http://www.sshow.org )
 	Copyright By SeoSeungHyun ( http://www.seoseunghyun.com || http://www.seunghyun.net )
 	me@seunghyun.net
 */
 
-require_once( dirname(__FILE__).'/config/init.php' );
-require_once( _SSHOW_DIR_.'/include/setup/index.php' );
-?>
+@charset "UTF-8";
+/* CSS Document */
+
+body
+{
+	margin: 0 auto;
+}
+
+#grid
+{
+	margin: 0 auto;
+	width: 600px;
+	height: 300px;
+}

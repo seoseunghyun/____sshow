@@ -1,17 +1,5 @@
-<?xml version='1.0' standalone='yes'?>
-<movies>
- <movie>
-  <title>PHP: Behind the Parser</title>
-  <characters>
-   <character>
-    <name>Ms. Coder</name>
-    <actor>Onlivia Actora</actor>
-   </character>
-   <character>
-    <name>Mr. Coder</name>
-    <actor>El Act&#211;r</actor>
-   </character>
-  </characters>
-
- </movie>
-</movies>
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+ <lang>ko</lang>
+ <html>4</html>
+</config>

@@ -21,6 +21,7 @@ define( '_SSHOW_URL_' , '' );
 
 /*
 	Import jQuery
+	(Javascript Library)
 	// _SSHOW_JQUERY_URL_을 이용해서 jquery CDN 이용 시 설정을 바꿀 수 있다.
 */
 define( '_SSHOW_JQUERY_' , true );
@@ -29,15 +30,27 @@ define( '_SSHOW_JQUERY_DIR_' , _SSHOW_DIR_.'common/src/jquery.js' );
 define( '_SSHOW_JQUERY_URL_' , _SSHOW_URL_.'common/src/jquery.js' );
 
 
-// 클래스 호출
-require_once( _SSHOW_DIR_.'/config/class/config.php' );
-require_once( _SSHOW_DIR_.'/config/class/ie6.php' );
 
+/*
+	Import Raphaël
+	(Cross Vector Graphic Javascript Library)
+	// _SSHOW_RAPHAEL_URL_을 이용해서 Raphaël CDN 이용 시 설정을 바꿀 수 있다.
+*/
+define( '_SSHOW_RAPHAEL_' , true );
+define( '_SSHOW_RAPHAEL_VERSION_' , '2.1.2' );
+define( '_SSHOW_RAPHAEL_DIR_' , _SSHOW_DIR_.'common/src/raphael.js' );
+define( '_SSHOW_RAPHAEL_URL_' , _SSHOW_URL_.'common/src/raphael.js' );
+
+// 클래스 호출
+require_once( _SSHOW_DIR_.'/config/class/stdset.php' );
+require_once( _SSHOW_DIR_.'/config/class/detect.php' );
 
 // 클래스 등록 ( 생성 )
 // 설정 초기화
-$sshowConfig = new sshowClass_config();
-$sshowIE6 = new sshowClass_ie6();
+$sshow = new sshowClass_stdset();
+$sshowDetect = new sshowClass_detect();
+
+$sshow->lang('en');
 
 
 ?>

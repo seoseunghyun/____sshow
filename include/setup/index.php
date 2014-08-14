@@ -37,7 +37,7 @@ define('__SSHOW_SETUP_URL__', _SSHOW_URL_.'include/setup/' );
  		
  	</div>
  	<div id="content_grid">
- 	
+ 	<?=$sshow->echo->common->next;?>
  	</div>
 </div>
  

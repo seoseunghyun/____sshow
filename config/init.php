@@ -28,23 +28,16 @@ define( '_SSHOW_JQUERY_VERSION_' , '1.11.1' );
 define( '_SSHOW_JQUERY_DIR_' , _SSHOW_DIR_.'common/src/jquery.js' );
 define( '_SSHOW_JQUERY_URL_' , _SSHOW_URL_.'common/src/jquery.js' );
 
+
 // 클래스 호출
 require_once( _SSHOW_DIR_.'/config/class/config.php' );
+require_once( _SSHOW_DIR_.'/config/class/ie6.php' );
+
 
 // 클래스 등록 ( 생성 )
 // 설정 초기화
 $sshowConfig = new sshowClass_config();
+$sshowIE6 = new sshowClass_ie6();
 
-
-class sshowIE
-{
-	public $png;
-	
-	// 생성자
-	function __construct()
-	{
-		
-	}
-}
 
 ?>

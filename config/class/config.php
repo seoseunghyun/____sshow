@@ -19,7 +19,6 @@ class sshowClass_config
 			// 설정 파일의 경로 : _SSHOW_DIR_.'data/common/init.xml'
 			$xml = simplexml_load_file( _SSHOW_DIR_.'data/common/init.xml' );
 			$this->lang = $xml->lang;
-			$this->html = $xml->html;
 		}
 		
 		$this->lang = 'ko';
@@ -31,5 +30,12 @@ class sshowClass_config
 	function lang( $_lang )
 	{
 		$this->lang = $_lang;
+		return $this->lang;
+	}
+	
+	function html4( $_html4 )
+	{
+		$this->html4 = $_html4;
+		return $this->html4;
 	}
 }

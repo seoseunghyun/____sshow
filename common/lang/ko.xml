@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<sshow>
+
+	<info>
+		<lang>ko</lang>
+		<language>korean</language>
+		<version>0.1</version>
+		<creator>SeoSeungHyun</creator>
+		<func>common</func>
+	</info>
+
+	<common>
+		<next>다음</next>
+		<prev>이전</prev>
+		<submit>확인</submit>
+		<cancle>취소</cancle>
+	</common>
+</sshow>

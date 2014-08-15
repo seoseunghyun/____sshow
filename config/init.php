@@ -35,10 +35,10 @@ define( '_SSHOW_JQUERY_URL_' , _SSHOW_URL_.'common/src/jquery.js' );
 	(jQuery Library)
 	// _SSHOW_JQUERY-UI_URL_을 이용해서 jquery CDN 이용 시 설정을 바꿀 수 있다.
 */
-define( '_SSHOW_JQUERY-UI_' , true );
-define( '_SSHOW_JQUERY-UI_VERSION_' , '1.11.1' );
-define( '_SSHOW_JQUERY-UI_DIR_' , _SSHOW_DIR_.'common/src/jquery-ui.js' );
-define( '_SSHOW_JQUERY-UI_URL_' , _SSHOW_URL_.'common/src/jquery-ui.js' );
+define( '_SSHOW_JQUERY_UI_' , true );
+define( '_SSHOW_JQUERY_UI_VERSION_' , '1.11.1' );
+define( '_SSHOW_JQUERY_UI_DIR_' , _SSHOW_DIR_.'common/src/jquery-ui.js' );
+define( '_SSHOW_JQUERY_UI_URL_' , _SSHOW_URL_.'common/src/jquery-ui.js' );
 
 
 
@@ -61,7 +61,6 @@ require_once( _SSHOW_DIR_.'/config/class/detect.class.php' );
 $sshow = new sshowClass_stdset();
 $sshowDetect = new sshowClass_detect();
 
-
-
-
+// 강제 설정
+$sshow->html(5);
 ?>

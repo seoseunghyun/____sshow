@@ -9,11 +9,12 @@
 class sshowClass_stdset
 {
 	public 	$echo,	// 언어 별 출력 변수
-			$lang	// 설정 언어 변수
+			$lang,	// 설정 언어 변수
+			$html = 4
 			;
 	
 	// 생성자
-	function __construct()
+	function __construct( $_lang = 'en' )
 	{
 		// 설정 파일이 있을 경우 설정 파일의 내용으로 초기화 한다.
 		if( file_exists( _SSHOW_DIR_.'data/config/init.xml' ) )
@@ -24,7 +25,7 @@ class sshowClass_stdset
 		}
 		
 		// 영어로 언어 초기화
-		$this->lang( 'en' );
+		$this->lang( $_lang );
 	}
 	
 	function lang( $_lang )
@@ -41,6 +42,13 @@ class sshowClass_stdset
 		$this->echo = $langXml->common;
 		
 		return $this->lang;
+	}
+	
+	// $_html 이상부터 호환 권장
+	function html( $_html )
+	{
+		$this->html = $_html;
+		return $this->html;
 	}
 
 }

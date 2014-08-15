@@ -10,6 +10,7 @@ class sshowClass_detect
 {
 	public 	$png, 
 			$dpi,
+			$dpiValue,
 			$mobile
 			;
 	
@@ -22,5 +23,15 @@ class sshowClass_detect
 			// 설정 파일의 경로 : _SSHOW_DIR_.'data/common/init.xml'
 
 		}
+	}
+	
+	function dpi( $_dpi, $_dpiValue = 2 )
+	{
+		if( $_dpi )
+		{
+			
+		}
+		
+		$this->dpiValue = $_dpiValue;
 	}
 }

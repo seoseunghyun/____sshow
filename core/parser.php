@@ -5,7 +5,5 @@
 	me@seunghyun.net
 */
 
-// head 혹은 body에 include 할 페이지 필터링
-
+echo str_replace ('{@title}', 'SSHOW', $sshowHTMLContents);
 ?>
-

@@ -5,6 +5,6 @@
 	me@seunghyun.net
 */
 
-require_once( dirname(__FILE__).'/config/init.config.php' );
-require_once( _SSHOW_DIR_.'core/html.core.php' );
+require( dirname(__FILE__).'/config/init.php' );
+require( _SSHOW_DIR_.'core/html.php' );
 ?>

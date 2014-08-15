@@ -6,9 +6,6 @@
 */
  
 // 설치 메인 화면
-define('__SSHOW_SETUP_DIR__', _SSHOW_DIR_.'func/setup/' );
-define('__SSHOW_SETUP_URL__', _SSHOW_URL_.'func/setup/' );
-
 ?>
 <div id="grid">
  	<div id="logo_grid">

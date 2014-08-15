@@ -7,13 +7,13 @@
  
 // GET으로 넘어온 주소를 가져오고 정의
 
-if ( isset($_GET['func']) )
+if ( isset($_GET['inc']) )
 {
-	define( '__SSHOW_FUNC__' , $_GET['func']);
+	define( '__SSHOW_INC__' , $_GET['inc']);
 }
 else
 {
-	define( '__SSHOW_FUNC__' , NULL);
+	define( '__SSHOW_INC__' , NULL);
 }
 //
 

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<sshow>
+
+	<info>
+		<lang>en</lang>
+		<language>english</language>
+		<version>0.1</version>
+		<creator>SeoSeungHyun</creator>
+		<func>common</func>
+	</info>
+
+	<common>
+		<next>next</next>
+		<prev>previous</prev>
+		<submit>submit</submit>
+		<cancle>cancle</cancle>
+	</common>
+</sshow>

@@ -6,8 +6,8 @@
 */
  
 // 설치 메인 화면
-define('__SSHOW_SETUP_DIR__', _SSHOW_DIR_.'include/setup/' );
-define('__SSHOW_SETUP_URL__', _SSHOW_URL_.'include/setup/' );
+define('__SSHOW_SETUP_DIR__', _SSHOW_DIR_.'func/setup/' );
+define('__SSHOW_SETUP_URL__', _SSHOW_URL_.'func/setup/' );
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -37,7 +37,7 @@ define('__SSHOW_SETUP_URL__', _SSHOW_URL_.'include/setup/' );
  		
  	</div>
  	<div id="content_grid">
- 	<?=$sshow->echo->common->next;?>
+ 	<?=$sshow->echo->next;?>
  	</div>
 </div>
  

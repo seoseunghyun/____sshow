@@ -30,6 +30,17 @@ define( '_SSHOW_JQUERY_DIR_' , _SSHOW_DIR_.'common/src/jquery.js' );
 define( '_SSHOW_JQUERY_URL_' , _SSHOW_URL_.'common/src/jquery.js' );
 
 
+/*
+	Import jQuery UI
+	(jQuery Library)
+	// _SSHOW_JQUERY-UI_URL_을 이용해서 jquery CDN 이용 시 설정을 바꿀 수 있다.
+*/
+define( '_SSHOW_JQUERY-UI_' , true );
+define( '_SSHOW_JQUERY-UI_VERSION_' , '1.11.1' );
+define( '_SSHOW_JQUERY-UI_DIR_' , _SSHOW_DIR_.'common/src/jquery-ui.js' );
+define( '_SSHOW_JQUERY-UI_URL_' , _SSHOW_URL_.'common/src/jquery-ui.js' );
+
+
 
 /*
 	Import Raphaël
@@ -42,15 +53,15 @@ define( '_SSHOW_RAPHAEL_DIR_' , _SSHOW_DIR_.'common/src/raphael.js' );
 define( '_SSHOW_RAPHAEL_URL_' , _SSHOW_URL_.'common/src/raphael.js' );
 
 // 클래스 호출
-require_once( _SSHOW_DIR_.'/config/class/stdset.php' );
-require_once( _SSHOW_DIR_.'/config/class/detect.php' );
+require_once( _SSHOW_DIR_.'/config/class/stdset.class.php' );
+require_once( _SSHOW_DIR_.'/config/class/detect.class.php' );
 
 // 클래스 등록 ( 생성 )
 // 설정 초기화
 $sshow = new sshowClass_stdset();
 $sshowDetect = new sshowClass_detect();
 
-$sshow->lang('en');
+
 
 
 ?>

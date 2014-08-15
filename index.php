@@ -6,5 +6,8 @@
 */
 
 require_once( dirname(__FILE__).'/config/init.php' );
-require_once( _SSHOW_DIR_.'/include/setup/index.php' );
+
+// 기능 정의
+define( '__SSHOW_FUNC__' , 'setup');
+require_once( _SSHOW_DIR_.'/func/'.__SSHOW_FUNC__.'/index.php' );
 ?>

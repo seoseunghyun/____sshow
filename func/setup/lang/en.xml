@@ -17,7 +17,9 @@
 	<include>
 		<setup>
 			<start>Start SSHOW Setup!</start>
-			<selectLanguage>Select Language Of User Configuration.</selectLanguage>
+			<lang>
+			<select>Select Language Of User Configuration.</select>
+			</lang>
 		</setup>
 	</include>
 

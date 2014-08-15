@@ -21,6 +21,6 @@ define('__SSHOW_SETUP_URL__', _SSHOW_URL_.'func/setup/' );
  		
  	</div>
  	<div id="content_grid">
- 	<?=$sshow->echo->next;?>
+ 	
  	</div>
 </div>

@@ -14,5 +14,10 @@
 		<prev>previous</prev>
 		<submit>submit</submit>
 		<cancle>cancle</cancle>
+		
+		<error>
+			<nofunc>This Function is not exist page.</nofunc>
+		</error>
 	</common>
+	
 </sshow>

@@ -5,6 +5,7 @@
 	me@seunghyun.net
 */
 
-require_once( dirname(__FILE__).'/config/init.config.php' );
-require_once( _SSHOW_DIR_.'core/html.core.php' );
+// head 혹은 body에 include 할 페이지 필터링
+
 ?>
+

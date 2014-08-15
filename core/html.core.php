@@ -8,8 +8,18 @@
 // 기능 정의
 
 // GET으로 넘어온 주소를 가져오고 정의
-require_once( _SSHOW_DIR_.'core/getv.php' );
-define( '__SSHOW_FUNC__' , 'setup');
+require_once( _SSHOW_DIR_.'core/getv.core.php' );
+
+switch (__SSHOW_FUNC__)
+{
+	case 'setup' : 
+	
+	break;
+	default :
+		echo $sshow->echo->error->nofunc; exit;
+	break;
+}
+
 
 
 /* 
@@ -29,12 +39,11 @@ else
 ';
 }
 ?>
-
-
-
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<?php require_once( _SSHOW_DIR_.'common/head.php' ); ?>	
+	<meta name="Generator" content="SSHOW" />
+
+<?php require_once( _SSHOW_DIR_.'common/head.php' ); ?>	
 </head>
 <body>
 

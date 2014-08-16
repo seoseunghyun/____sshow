@@ -10,7 +10,7 @@ class sshowClass_detect
 {
 	public 	$png, 
 			$dpi,
-			$dpiValue,
+			$dpiValue = 1,
 			$mobile
 			;
 	
@@ -25,13 +25,11 @@ class sshowClass_detect
 		}
 	}
 	
-	function dpi( $_dpi, $_dpiValue = 2 )
+	function dpi( $_dpi, $_dpiValue = 1 )
 	{
-		if( $_dpi )
-		{
-			
-		}
+		$this->dpi = $_dpi;
 		
 		$this->dpiValue = $_dpiValue;
+		return $this->dpiValue;
 	}
 }

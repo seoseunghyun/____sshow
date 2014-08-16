@@ -15,14 +15,14 @@ body
 #grid
 {
 	margin: 200px auto;
-	width: 600px;
-	height: 300px;
+	width: 500px;
+	
 }
 
 #logo_grid
 {
 	margin: 0 auto;
-	width: 600px;
+	width: 500px;
 	height: 61px;
 	position: relative;
 	float: left;
@@ -43,6 +43,17 @@ body
 	overflow: hidden;
 }
 
+#logo_background_wrap
+{
+	margin: 0 auto;
+	width: 248px;
+	height: 61px;
+	position: absolute;
+	left: 1px;
+	top: 0;
+	overflow: hidden;
+}
+
 #logo_mask
 {
 	margin: 0 auto;
@@ -52,11 +63,93 @@ body
 	left: 0;
 	top: 0;
 }
+
+#title_grid
+{
+	margin: 0 auto;
+	margin-top: 15px;
+	display: inline;
+	width: 500px;
+	text-align: center;
+	position: relative;
+	float: left;
+	
+}
+
+#step_wrap
+{
+	margin: 0 auto;
+	position: relative;
+	width: 150px;
+	height: 27px;
+}
+
+#title_wrap
+{
+	margin: 0 auto;
+	position: relative;
+	width: 482px;
+	height: 34px;
+}
+
+#step_img
+{
+	position: absolute;
+	left: 0px;
+	top: 0px;
+}
+
+#title_img
+{
+	position: absolute;
+	left: 0px;
+	top: 0px;
+}
+
 #content_grid
 {
 	margin: 0 auto;
-	width: 600px;
+	display: inline;
+	width: 500px;
+	text-align: center;
+	position: relative;
+	float: left;
+	height:0px;
+}
+
+#button_grid
+{
+	margin: 0 auto;
+	width: 500px;
+	height: 80px;
+	position: relative;
+	float: left;
+	
+}
+
+#copyright_grid
+{
+	margin: 0 auto;
+	width: 500px;
 	height: 61px;
 	position: relative;
 	float: left;
+}
+
+#next_btn
+{
+	margin: 0 auto;
+	width: 80px;
+	height: 80px;
+	position: relative;
+}
+
+#nextClick_btn
+{
+	position: absolute;
+	width: 46px;
+	height: 46px;
+	left: 17px;
+	top: 17px;
+	cursor: pointer;
 }

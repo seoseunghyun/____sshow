@@ -11,7 +11,7 @@ $(document).ready(function(){
 			});
 		}
 	}
-	$('#logo_mask_img').load(function(){
+	//$('#logo_mask_img').load(function(){
 		$('#logo_background').show();
-	});
+	//});
 });

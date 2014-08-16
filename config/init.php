@@ -59,10 +59,11 @@ require_once( _SSHOW_DIR_.'/config/class/include.php' );
 
 // 클래스 등록 ( 생성 )
 // 설정 초기화
-$sshow = new sshowClass_stdset();
+$sshow = new sshowClass_stdset();	// 파라미터 안에는 설정 언어!
 $sshowDetect = new sshowClass_detect();
 $sshowInclude = new sshowClass_include();
 
 // 강제 설정
 $sshow->html(5);
+$sshowDetect->dpi( true, 2 );
 ?>

@@ -11,11 +11,19 @@
 require( _SSHOW_DIR_.'core/getv.php' );
 require( _SSHOW_DIR_.'core/include.php' );
 
+// 쉽게 사용하기 위한 개발자 상수 정의
+$sshow->lang('en');
+if( isset($_GET['lang']) ){ 
+$sshow->lang = $_GET['lang'];
+}
+define( '_SSHOW_HTML_LANG_', $sshow->lang );
 /* 
 	HTML4.0.1 혹은 HTML5 표준 정의를 하기 위한 함수
 	UTF-8을 표준으로 한다.
  */
-ob_start ();
+
+
+ 
 if($sshow->html == 5)
 {
 	echo '<!DOCTYPE html>
@@ -33,7 +41,6 @@ else
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<meta name="Generator" content="SSHOW" />
-	<title>{$title}</title>
 <?php require( _SSHOW_DIR_.'common/head.php' ); ?>
 
 <?php
@@ -46,21 +53,14 @@ foreach ($sshowInclude->javascript as $_key => $_value)
 <?php
 foreach ($sshowInclude->css as $_key => $_value)
 {
-	echo '	<link rel="stylesheet" type="text/css" charset="UTF-8" href="'.$_value.'" />';
+	echo '	<link rel="stylesheet" type="text/css" href="'.$_value.'" />';
 }
 ?>
 
 <?php require( $sshowInclude->head ); ?>
+
 </head>
 <body>
 <?php require( $sshowInclude->body ); ?>
 </body>
 </html>
-
-<?php
-$sshowHTMLContents = ob_get_contents ();
-ob_end_clean ();
-
-require( _SSHOW_DIR_.'core/parser.php' );
-
-?>

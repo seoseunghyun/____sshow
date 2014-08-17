@@ -10,11 +10,12 @@
 body
 {
 	margin: 0 auto;
+	height: 100%;
 }
 
 #grid
 {
-	margin: 200px auto;
+	margin: 13% auto;
 	width: 500px;
 	
 }
@@ -136,20 +137,20 @@ body
 	float: left;
 }
 
-#next_btn
+#button_wrap
 {
 	margin: 0 auto;
-	width: 80px;
+	width: 500px;
 	height: 80px;
 	position: relative;
 }
 
-#nextClick_btn
+#step_btn
 {
 	position: absolute;
 	width: 46px;
 	height: 46px;
-	left: 17px;
+	left: 227px;
 	top: 17px;
 	cursor: pointer;
 }

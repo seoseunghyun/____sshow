@@ -116,6 +116,7 @@ body
 	position: relative;
 	float: left;
 	height:0px;
+	overflow: hidden;
 }
 
 #button_grid
@@ -150,7 +151,57 @@ body
 	position: absolute;
 	width: 46px;
 	height: 46px;
-	left: 227px;
+	left: 200px;
 	top: 17px;
 	cursor: pointer;
 }
+
+#lang_btn
+{
+	position: absolute;
+	width: 46px;
+	height: 46px;
+	left: 254px;
+	top: 17px;
+	cursor: pointer;
+}
+
+
+/* Step 1 */
+#step1_grid
+{
+	position: relative;
+	margin: 0 auto;
+	margin-top: 25px;
+	width: 500px;
+
+}
+
+.step1_lang_wrap
+{
+	position: relative;
+	margin: 0 auto;
+	margin-top: 10px;
+	width: 100px;
+	height: 25px;
+	cursor: pointer;
+}
+
+.step1_lang_li
+{
+	position: relative;
+	width: 25px;
+	height: 25px;
+	float: left;	
+}
+
+.step1_lang_title
+{
+	position: absolute;
+	left: 90px;
+	width: 75px;
+	height: 25px;
+	float: left;
+/* 	display: none; */
+}
+

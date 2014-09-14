@@ -57,20 +57,4 @@ switch ( $sshowDisplay ){
 	case 'admin' : require( _SSHOW_DIR_.'include/admin/index.php' ); break;
 	default :
 }
-
-/*
-function _sshowMain_Require_(){
-	global $sshowDB, $sshowMain_config;
-	require( _SSHOW_DIR_.'core/container.php' );
-	unset($sshowDB, $sshowMain_config);
-}
-
-function _sshowSetup_Require_(){
-	require( _SSHOW_DIR_.'include/setup/index.php' );
-}
-
-function _sshowAdmin_Require_(){
-	require( _SSHOW_DIR_.'include/admin/index.php' );
-}
-*/
 ?>

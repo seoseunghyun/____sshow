@@ -20,7 +20,7 @@ if( file_exists( _SSHOW_DIR_.'data/config.xml' ) ) {
 	$sshowMain_content = $sshowClass_DB->getContent();
 	
 	$sshowDisplay = 'main';
-	//	_sshowMain_Require_();
+
 	
 } else { 
 	

@@ -8,6 +8,7 @@
 //SSHOW Container
 
 define('__SSHOW_MAIN_CONFIG_TITLE__', (string)$sshowMain_config['title']);
+define('__SSHOW_MAIN_CONTENT_LAYOUT__', (string)$sshowMain_content['layout']);
 function _sshowFunc_Main_import_commonCSS_( $cssArray ){
 	foreach( $cssArray as $cssKey => $cssValue ){
 		echo '
@@ -48,5 +49,8 @@ function _sshowFunc_Main_import_commonJS_( $jsArray ){
 
 </head>
 <body>
+	<?php
+	echo __SSHOW_MAIN_CONTENT_LAYOUT__;
+	?>
 </body>
 </html>

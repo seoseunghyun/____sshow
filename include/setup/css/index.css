@@ -1,0 +1,78 @@
+/*
+	SSHOW ( http://www.sshow.org )
+	Copyright By SeoSeungHyun ( http://www.seoseunghyun.com || http://www.seunghyun.net )
+	me@seunghyun.net
+*/
+
+@charset "UTF-8";
+/* CSS Document */
+/* Setup CSS Document */
+html
+{
+	height: 100%;
+}
+
+body
+{
+	margin: 0 auto;
+	height: 100%;
+}
+
+#grid
+{
+	margin: 13% auto;
+	width: 600px;
+}
+
+#logo_wrap
+{
+	margin: 0 auto;
+	width: 600px;
+	height: 61px;
+	position: relative;
+	float: left;
+}
+
+#logo
+{
+	margin: 0 auto;
+	width: 250px;
+	height: 61px;
+	position: relative;
+	overflow: hidden;
+}
+
+#logo_bgcolor
+{
+	margin: 0 auto;
+	width: 248px;
+	height: 61px;
+	position: absolute;
+	left: 1px;
+	top: 0;
+	overflow: hidden;
+}
+
+#logo_background_img
+{
+	position: absolute;
+}
+
+#logo_mask
+{
+	margin: 0 auto;
+	width: 250px;
+	height: 61px;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+#btn_wrap
+{
+	margin: 0 auto;
+	width: 600px;
+	height: 50px;
+	position: relative;
+	float: left;
+}

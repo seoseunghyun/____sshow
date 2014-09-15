@@ -28,11 +28,17 @@ function _sshowFunc_Main_import_commonJS_( $jsArray ){
 		  
 	}
 }
+
+if(__SSHOW_MAIN_CONTENT_LAYOUT__ == 'null'){
+
+}
+	
 ?>
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
+	<meta name="Generator" content="SSHOW" />
 	<title><?=__SSHOW_MAIN_CONFIG_TITLE__?></title>
 	<?php
 	_sshowFunc_Main_import_commonCSS_( $sshowClass_stdlib->flist(_SSHOW_DIR_.'common/css/') );
@@ -49,8 +55,6 @@ function _sshowFunc_Main_import_commonJS_( $jsArray ){
 
 </head>
 <body>
-	<?php
-	echo __SSHOW_MAIN_CONTENT_LAYOUT__;
-	?>
+	
 </body>
 </html>

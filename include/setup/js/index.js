@@ -128,7 +128,7 @@ $(document).ready(function(){
 				prevBtn_line1.animate({ "path" : "M 20 30 L 37 21", "stroke" : "#7f7f7f" }, 200, ">" );
 				prevBtn_line2.animate({ "path" : "M 20 30 L 37 39", "stroke" : "#7f7f7f" }, 200, ">" );
 				
-				
+				var nextFlag = false;
 
 				var slotNumber = function(SlotNo, Num){
 					var goTop = 0;
@@ -142,10 +142,10 @@ $(document).ready(function(){
 						case 6 : goTop = -700; break;
 						case 7 : goTop = -800; break;
 					}
-					$('#content_permission_slot_' + SlotNo).animate({'top' : goTop}, 1300,"easeInOutBack");
+					$('#content_permission_slot_' + SlotNo).stop().animate({ 'top' : goTop }, 200 + 250 * ( Math.floor ( Math.random() * 5 ) + 1 ), "easeInOutBack" );
 					
 				}
-				var slotTimer = setInterval(function(){
+				var slotLoader = function(){
 					$.ajax({
 						type: "POST",
 						url: __SSHOW_SETUP_URL__+"action/permission_check.php",
@@ -154,10 +154,23 @@ $(document).ready(function(){
 							slotNumber(1,parseInt(e.substr(0, 1)));
 							slotNumber(2,parseInt(e.substr(1, 1)));
 							slotNumber(3,parseInt(e.substr(2, 1)));
+							if(parseInt(e.substr(0, 1)) == 7 && parseInt(e.substr(2, 1)) == 7){
+								nextFlag = true;
+							}else{
+								nextFlag = false;
+							}
 						}
 					});
-					
-				}, 1500);
+				}
+				
+				var slotTimer = setInterval(function(){
+					slotLoader();
+				}, 2500);
+				
+				setTimeout(function(){
+					slotLoader();	
+				}, 500);
+				
 				
 				$('#prev_btn')
 				.stop()
@@ -170,17 +183,34 @@ $(document).ready(function(){
 				.stop()
 				.animate({'left' : 295},800,"easeInOutExpo")
 				.on('click',function(){
-					clearInterval(slotTimer);
-					
-					nextBtn_circle.animate({ 'fill' : "#e44651"},100);
-					nextBtn_line1.animate({ "path" : "M 22 22 L 38 38", "stroke" : "#e2e2e2" }, 200, "bounce" );
-					nextBtn_line2.animate({ "path" : "M 38 22 L 22 38", "stroke" : "#e2e2e2" }, 200, "bounce" );
-
-					$(this).stop().animate({'left' : 305},600,"easeOutBounce",function(){
-						$('#next_btn').animate({'left' : 295},200,"easeOutBack");
-						nextBtn_circle.animate({ 'fill' : "#777777"},200);
-						nextBtn_line1.animate({ "path" : "M 24 21 L 41 30", "stroke" : "#e2e2e2" }, 100, "bounce" );
-						nextBtn_line2.animate({ "path" : "M 41 30 L 24 39", "stroke" : "#e2e2e2" }, 100, "bounce" );
+					$.ajax({
+						type: "POST",
+						url: __SSHOW_SETUP_URL__+"action/permission_check.php",
+						data: { _SSHOW_DIR_ : _SSHOW_DIR_ },
+						success: function(e){
+							slotNumber(1,parseInt(e.substr(0, 1)));
+							slotNumber(2,parseInt(e.substr(1, 1)));
+							slotNumber(3,parseInt(e.substr(2, 1)));
+							if(parseInt(e.substr(0, 1)) == 7 && parseInt(e.substr(2, 1)) == 7){
+								nextFlag = true;
+							}else{
+								nextFlag = false;
+							}
+							if(nextFlag == true){
+								clearInterval(slotTimer);
+							}else{
+								nextBtn_circle.animate({ 'fill' : "#e44651"},100);
+								nextBtn_line1.animate({ "path" : "M 22 22 L 38 38", "stroke" : "#e2e2e2" }, 200, "bounce" );
+								nextBtn_line2.animate({ "path" : "M 38 22 L 22 38", "stroke" : "#e2e2e2" }, 200, "bounce" );
+			
+								$('#next_btn').stop().animate({'left' : 305},600,"easeOutBounce",function(){
+									$('#next_btn').animate({'left' : 295},200,"easeOutBack");
+									nextBtn_circle.animate({ 'fill' : "#777777"},200);
+									nextBtn_line1.animate({ "path" : "M 24 21 L 41 30", "stroke" : "#e2e2e2" }, 100, "bounce" );
+									nextBtn_line2.animate({ "path" : "M 41 30 L 24 39", "stroke" : "#e2e2e2" }, 100, "bounce" );
+								});
+							}
+						}
 					});
 				});
 			break;

@@ -105,21 +105,29 @@ $(document).ready(function(){
 					nextBtn_line2.animate({ "path" : "M 37 19 L 30 39", "stroke" : "#e2e2e2" }, 200, ">" );
 				})
 				.click(function(){
-					go(3)
+					go(3);
 				});
 			break;
 			case 3 : 
 				$('#title_img').animate({'margin-top':-100},1000,"easeInOutBack");
-				if($('#content_license').css('display') == 'none'){
-					$('#content_permission').show();
-							$('#content_wrap').slideDown(800,"easeInOutExpo");
-				}else{
+				if($('#content_license').css('display') != 'none'){
 					$('#content_license').hide(600,"easeInOutExpo",function(){
 						$('#content_permission').show(600,"easeInOutExpo",function(){
 							$('#content_wrap').slideDown(800,"easeInOutExpo");
 						});
-						
 					});
+				} else if ($('#content_selectDB').css('display') != 'none'){
+					$('#content_selectDB').hide(600,"easeInOutExpo",function(){
+						$('#content_permission').show(600,"easeInOutExpo",function(){
+							$('#content_wrap').slideDown(800,"easeInOutExpo");
+						});
+					});
+					
+				} else {
+					$('#content_permission').show(600,"easeInOutExpo",function(){
+							$('#content_wrap').slideDown(800,"easeInOutExpo");
+						});
+
 				}
 				nextBtn_circle.animate({ "r" : 22, "fill" : "#777777" }, 200, ">" );
 				nextBtn_line1.animate({ "path" : "M 24 21 L 41 30", "stroke" : "#e2e2e2" }, 200, ">" );
@@ -133,6 +141,7 @@ $(document).ready(function(){
 				var slotNumber = function(SlotNo, Num){
 					var goTop = 0;
 					switch (Num){
+						case -1 : goTop = 0; break;
 						case 0 : goTop = -100; break;
 						case 1 : goTop = -200; break;
 						case 2 : goTop = -300; break;
@@ -141,10 +150,14 @@ $(document).ready(function(){
 						case 5 : goTop = -600; break;
 						case 6 : goTop = -700; break;
 						case 7 : goTop = -800; break;
+						
 					}
 					$('#content_permission_slot_' + SlotNo).stop().animate({ 'top' : goTop }, 200 + 250 * ( Math.floor ( Math.random() * 5 ) + 1 ), "easeInOutBack" );
 					
 				}
+				
+				
+				
 				var slotLoader = function(){
 					$.ajax({
 						type: "POST",
@@ -162,14 +175,18 @@ $(document).ready(function(){
 						}
 					});
 				}
+				slotNumber(1,-1);
+				slotNumber(2,-1);
+				slotNumber(3,-1);
+				
+				setTimeout(function(){
+					slotLoader();	
+				}, 500);
 				
 				var slotTimer = setInterval(function(){
 					slotLoader();
 				}, 2500);
 				
-				setTimeout(function(){
-					slotLoader();	
-				}, 500);
 				
 				
 				$('#prev_btn')
@@ -198,6 +215,8 @@ $(document).ready(function(){
 							}
 							if(nextFlag == true){
 								clearInterval(slotTimer);
+								go(4);
+								
 							}else{
 								nextBtn_circle.animate({ 'fill' : "#e44651"},100);
 								nextBtn_line1.animate({ "path" : "M 22 22 L 38 38", "stroke" : "#e2e2e2" }, 200, "bounce" );
@@ -212,6 +231,47 @@ $(document).ready(function(){
 							}
 						}
 					});
+				});
+			break;
+			
+			case 4 :
+				$('#title_img').animate({'margin-top':-150},1000,"easeInOutBack");
+				if($('#content_permission').css('display') != 'none'){
+					$('#content_permission').hide(600,"easeInOutExpo",function(){
+						$('#content_selectDB').show(600,"easeInOutExpo",function(){
+							$('#content_wrap').slideDown(800,"easeInOutExpo");
+						});
+					});
+				} else if ($('#content_content_settingDB').css('display') != 'none'){
+					$('#content_content_settingDB').hide(600,"easeInOutExpo",function(){
+						$('#content_selectDB').show(600,"easeInOutExpo",function(){
+							$('#content_wrap').slideDown(800,"easeInOutExpo");
+						});
+					});
+				} else {
+					$('#content_selectDB').show();
+					$('#content_wrap').slideDown(800,"easeInOutExpo");
+				}
+				nextBtn_circle.animate({ "r" : 22, "fill" : "#777777" }, 200, ">" );
+				nextBtn_line1.animate({ "path" : "M 24 21 L 41 30", "stroke" : "#e2e2e2" }, 200, ">" );
+				nextBtn_line2.animate({ "path" : "M 41 30 L 24 39", "stroke" : "#e2e2e2" }, 200, ">" );
+				prevBtn_circle.animate({ "r" : 22, "fill" : "#d3d3d3" }, 200, ">" );
+				prevBtn_line1.animate({ "path" : "M 20 30 L 37 21", "stroke" : "#7f7f7f" }, 200, ">" );
+				prevBtn_line2.animate({ "path" : "M 20 30 L 37 39", "stroke" : "#7f7f7f" }, 200, ">" );
+								
+				
+				$('#prev_btn')
+				.stop()
+				.animate({'left' : 245},800,"easeInOutExpo")
+				.on('click',function(){
+
+					go(3)
+				})
+				$('#next_btn')
+				.stop()
+				.animate({'left' : 295},800,"easeInOutExpo")
+				.on('click',function(){
+				
 				});
 			break;
 		}

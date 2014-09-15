@@ -8,7 +8,7 @@
 // Define DB Type For include DB Class file.
 define( '__SSHOW_DB_TYPE__' ,  $sshowXML_config->db->type );
 
-require( _SSHOW_DIR_.'common/db/'.__SSHOW_DB_TYPE__.'.php' );
+require( _SSHOW_DIR_.'common/db/'.__SSHOW_DB_TYPE__.'/class.php' );
 
 // Extending & Binding Class For Forming.
 class sshowClass_DB extends _sshowClass_DB_ {

@@ -27,7 +27,7 @@ body
 
 #grid
 {
-	margin: 13% auto;
+	margin: 10% auto;
 	width: 600px;
 }
 
@@ -154,6 +154,42 @@ body
 	z-index: 0;
 }
 
+#content_selectDB_list
+{
+	margin: 0 auto;
+	position: relative;
+	width: 130px;
+	margin-top: 10px;
+}
+
+.content_selectDB_eleWrap
+{
+	position: relative;
+	width: 130px;
+	float: left;
+	height: 50px;
+	margin-bottom: 10px;
+}
+
+.content_selectDB_radio
+{
+	position: relative;
+	width: 20px;
+	float: left;
+	height: 20px;
+	margin-top: 15px;
+}
+
+.content_selectDB_name
+{
+	position: relative;
+	width: 110px;
+	float: left;
+	height: 50px;
+	cursor: pointer;
+	text-align: right;
+}
+
 #btn_wrap
 {
 	margin: 0 auto;
@@ -188,7 +224,7 @@ body
 {
 	width: 20px;
 	height: 20px;
-	background: red;
 	position: relative;
-	cursor: pointer;	
+	cursor: pointer;
+	overflow: hidden;
 }

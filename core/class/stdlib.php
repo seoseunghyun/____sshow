@@ -22,6 +22,21 @@ class sshowClass_stdlib {
 		}
 		return $farray;
 	}
+	function dlist($dir){
+		$farray = array();
+		if(is_dir($dir)){
+			$fdir = dir($dir);
+			
+			while( false !== ( $files = $fdir->read() ) ){
+			
+				if( $files != '.' && $files != '..' && !is_file($files) ){
+					array_push($farray, $files);
+				}
+			}
+			$fdir->close();
+		}
+		return $farray;
+	}
 }
 
 ?>

@@ -78,10 +78,25 @@ define( '__SSHOW_SETUP_URL__' , _SSHOW_URL_.'include/setup/' );
 				<img id="content_permission_helper_img" src="<?=__SSHOW_SETUP_URL__?>img/permission_helper.png" width="165" height="28" alt="SSHOW" />
 			</div>
 		</div>
-		<div id="content_selectDB" class="content_content" style="width:425px; height:200px;">
-			<div id="content_selectDB_option_mysql" class="sshowBtn_option"></div>
-			<div id="content_selectDB_option_mysql" class="sshowBtn_option"></div>
-			<div id="content_selectDB_option_mysql" class="sshowBtn_option"></div>
+		<?php
+		$dbListArray = $sshowClass_stdlib->dlist( _SSHOW_DIR_.'common/db/' );
+		?>
+		<div id="content_selectDB" class="content_content" style="width:425px;">
+			<div id="content_selectDB_list" class="sshowBtn_optionGroup">
+		<?php
+
+			foreach( $dbListArray as $dbListV => $dbListKey){
+				echo '
+				<div class="content_selectDB_eleWrap">
+					<div class="content_selectDB_radio"><div id="selectDB_'.$dbListKey.'" class="sshowBtn_option"></div></div>
+					<div class="content_selectDB_name">
+						<img src="'._SSHOW_URL_.'common/db/'.$dbListKey.'/logo.png'.'" width="102" height="50" alt="'.$dbListKey.'" />
+					</div>
+				</div>
+			';
+			}
+		?>
+			</div>
 		</div>
 		<div id="content_settingDB" class="content_content" style="width:425px; height:100px;">
 		</div>

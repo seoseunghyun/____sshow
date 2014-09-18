@@ -33,24 +33,47 @@ $(document).ready(function(){
 	prevBtn_line1.attr({ "stroke" : "#e2e2e2" , "stroke-width" : 2, "stroke-linecap" : "round" });
 	prevBtn_line2.attr({ "stroke" : "#e2e2e2" , "stroke-width" : 2, "stroke-linecap" : "round" });
 	
-	var sshowBtn_optiongroup = new Array;
-	$('.sshowBtn_optiongroup').each(function(){
-	var sshowBtn_option = new Array;
-			$(this).find('.sshowBtn_option').each(function(){
-				var optionCanvas = Raphael($(this)[0]);
-				optionCircle = optionCanvas.circle(10, 10, 7);
-				optionCircle.attr({'stroke' : 'none' , 'fill' : '#c7c7c7'});
-				$(this).mouseenter(function(){
-					$(this).parent().find('.sshowBtn_option').each(function(){
-						console.log($(this)[0]);
-					});
-				})
-				sshowBtn_option.push('a');
-			});
-			sshowBtn_optiongroup.push(sshowBtn_option);
+	var sshowBtn_optionArray = new Array;
+	$('.sshowBtn_optionGroup').each(function(){
+		$(this).find('.sshowBtn_option').each(function(){
+			var optionBtnCanvas = Raphael($(this)[0]);
+			
+			var optionBtnCircle = optionBtnCanvas.circle(10, 10, 7);
+			optionBtnCircle.id = $(this).attr('id');
+			optionBtnCircle.attr({'stroke':'none','fill':'#777777'});
+			
+			var optionBtnCircleSelect = optionBtnCanvas.circle(10, 10, 0);
+			optionBtnCircleSelect.id = $(this).attr('id') + '_select';
+			optionBtnCircleSelect.attr({'stroke':'none','fill':'#e2e2e2'});	
+			
+			sshowBtn_optionArray[$(this).attr('id')] = optionBtnCanvas;
+		})
 	});
-		console.log(sshowBtn_optiongroup);
 	
+	$('.sshowBtn_option').on('click', function(){
+		var optionBtnNow = sshowBtn_optionArray[$(this).attr('id')].getById($(this).attr('id'));
+		var optionBtnSelectNow = sshowBtn_optionArray[$(this).attr('id')].getById($(this).attr('id')+'_select');
+		if ( $(this).hasClass( 'sshowBtn_optionSelected' ) ){
+			return false;
+		}
+		$('.sshowBtn_optionGroup').each(function(){
+			$(this).find('.sshowBtn_option').each(function(){
+				var optionBtnThis = sshowBtn_optionArray[$(this).attr('id')].getById($(this).attr('id'));
+				var optionBtnSelectThis = sshowBtn_optionArray[$(this).attr('id')].getById($(this).attr('id')+'_select');
+				$(this).removeClass( 'sshowBtn_optionSelected' );
+				optionBtnThis.animate({ 'fill' : '#777777', 'r' : 7 }, 300, ">");
+				optionBtnSelectThis.animate({ 'r' : 0 }, 300, ">");
+			});
+		})
+		optionBtnNow.animate({ 'fill' : '#4a4a4a', 'r' : 9 }, 700, "bounce" );
+		optionBtnSelectNow.animate({ 'r' : 5 }, 700, "bounce");
+		$(this).addClass( 'sshowBtn_optionSelected' );
+	})
+	
+	
+	$('.content_selectDB_eleWrap').on('click', function(){
+		$(this).find('.sshowBtn_option').click();
+	});
 	
 	function go(Step){
 	$('#prev_btn').off('click mouseleave mouseenter');

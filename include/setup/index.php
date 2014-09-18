@@ -47,8 +47,11 @@ define( '__SSHOW_SETUP_URL__' , _SSHOW_URL_.'include/setup/' );
 			</div>
 		</div>
 	</div>
-	<div id="title_wrap">
+	<div id="title_wrap" >
 	<img id="title_img" src="<?=__SSHOW_SETUP_URL__?>img/title.png" width="427" height="350" alt="SSHOW" />
+	</div>
+	<div id="subtitle_wrap" >
+	<img id="subtitle_img" src="<?=__SSHOW_SETUP_URL__?>img/subtitle.png" width="337" height="175" alt="SSHOW" />
 	</div>
 	<div id="content_wrap">
 		<div id="content_license" class="content_content" style="width:425px; height:190px;">
@@ -76,6 +79,9 @@ define( '__SSHOW_SETUP_URL__' , _SSHOW_URL_.'include/setup/' );
 			</div>
 		</div>
 		<div id="content_selectDB" class="content_content" style="width:425px; height:200px;">
+			<div id="content_selectDB_option_mysql" class="sshowBtn_option"></div>
+			<div id="content_selectDB_option_mysql" class="sshowBtn_option"></div>
+			<div id="content_selectDB_option_mysql" class="sshowBtn_option"></div>
 		</div>
 		<div id="content_settingDB" class="content_content" style="width:425px; height:100px;">
 		</div>

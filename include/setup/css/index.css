@@ -85,9 +85,15 @@ body
 	text-align: center;
 }
 
-#title_img
+#subtitle_wrap
 {
-	margin-top: 50px;
+	width: 600px;
+	height: 25px;
+	position: relative;
+	float: left;
+	overflow: hidden;
+	text-align: center;
+	display: none;
 }
 
 #content_wrap
@@ -176,4 +182,13 @@ body
 	position: absolute;
 	left: 270px;
 	z-index: 1;
+}
+
+.sshowBtn_option
+{
+	width: 20px;
+	height: 20px;
+	background: red;
+	position: relative;
+	cursor: pointer;	
 }

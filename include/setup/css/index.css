@@ -18,6 +18,7 @@ body
 {
 	margin: 0 auto;
 	height: 100%;
+	font-family: "맑은 고딕", Tahoma, "돋움";
 }
 
 .setup_button
@@ -111,10 +112,23 @@ body
 {
 	margin: 0 auto;
 	position: relative;
+	width: 425px;
 	display: none;
 }
 
+#content_license
+{
+	position: relative;
+	margin: 0 auto;
+	height: 190px;
+}
 
+#content_permission
+{
+	position: relative;
+	margin: 0 auto;
+	height: 138px;
+}
 #content_permission_slot_wrap
 {
 	margin: 0 auto;
@@ -169,6 +183,7 @@ body
 	float: left;
 	height: 50px;
 	margin-bottom: 10px;
+	
 }
 
 .content_selectDB_radio
@@ -188,6 +203,73 @@ body
 	height: 50px;
 	cursor: pointer;
 	text-align: right;
+	
+}
+
+#content_settingDB_load
+{
+	display: none;
+}
+
+#content_settingDB_content
+{
+	position: relative;
+	margin: 0 auto;
+	width: 100%;
+}
+
+.content_settingDB_img
+{
+	position: relative;
+	margin: 0 auto;
+	width: 100%;
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+.content_settingDB_eleWrap
+{
+	position: relative;
+	margin: 0 auto;
+	height: 25px;
+	width: 350px;
+	margin-bottom: 15px;
+	margin-top: 10px;
+}
+
+.content_settingDB_key
+{
+	position: relative;
+	margin: 0 auto;
+	float: left;
+	width: 175px;
+	height: 25px;
+	text-align: right;
+	font-size: 17px;
+	color: #626262;
+	
+}
+
+.content_settingDB_input
+{
+	position: relative;
+	margin: 0 auto;
+	float: left;
+	width: 175px;
+	height: 25px;
+	text-align: left;
+}
+
+.content_settingDB_input input
+{
+	border: none;
+	outline: none;
+	font-size: 16px;
+	width: 130px;
+	height: 22px;
+	margin: 0px 0px;
+	padding: 0px 0px;
+	border-bottom: 1px solid #8f8f8f;
+	color: #8f8f8f;
 }
 
 #btn_wrap

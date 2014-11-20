@@ -30,6 +30,7 @@ define( '__SSHOW_SETUP_URL__' , _SSHOW_URL_.'include/setup/' );
 	<script type="text/javascript">
 	var __SSHOW_SETUP_URL__ = "<?=__SSHOW_SETUP_URL__?>";
 	var __SSHOW_SETUP_DIR__ = "<?=__SSHOW_SETUP_DIR__?>";
+	var _SSHOW_URL_ = "<?=_SSHOW_URL_?>";
 	var _SSHOW_DIR_ = "<?=_SSHOW_DIR_?>";
 	</script>
 </head>
@@ -54,10 +55,10 @@ define( '__SSHOW_SETUP_URL__' , _SSHOW_URL_.'include/setup/' );
 	<img id="subtitle_img" src="<?=__SSHOW_SETUP_URL__?>img/subtitle.png" width="337" height="175" alt="SSHOW" />
 	</div>
 	<div id="content_wrap">
-		<div id="content_license" class="content_content" style="width:425px; height:190px;">
+		<div id="content_license" class="content_content">
 		<img src="<?=__SSHOW_SETUP_URL__?>img/license.png" width="425" height="188" alt="License" />
 		</div>
-		<div id="content_permission" class="content_content" style="width:425px; height:138px;">
+		<div id="content_permission" class="content_content">
 			<div id="content_permission_slot_wrap">
 				<div id="content_permission_slot_mask">
 					<img id="content_permission_slot_mask_img" src="<?=__SSHOW_SETUP_URL__?>img/permission_slot_mask.png" width="165" height="100" />
@@ -81,7 +82,7 @@ define( '__SSHOW_SETUP_URL__' , _SSHOW_URL_.'include/setup/' );
 		<?php
 		$dbListArray = $sshowClass_stdlib->dlist( _SSHOW_DIR_.'common/db/' );
 		?>
-		<div id="content_selectDB" class="content_content" style="width:425px;">
+		<div id="content_selectDB" class="content_content">
 			<div id="content_selectDB_list" class="sshowBtn_optionGroup">
 		<?php
 
@@ -98,7 +99,13 @@ define( '__SSHOW_SETUP_URL__' , _SSHOW_URL_.'include/setup/' );
 		?>
 			</div>
 		</div>
-		<div id="content_settingDB" class="content_content" style="width:425px; height:100px;">
+		<div id="content_settingDB" class="content_content">
+			<div id="content_settingDB_load"></div>
+			<div id="content_settingDB_content">
+			</div>
+		</div>
+		<div id="content_settingUser" class="content_content" style="width:425px; height:100px;">
+			
 		</div>
 	</div>
 	<div id="btn_wrap">

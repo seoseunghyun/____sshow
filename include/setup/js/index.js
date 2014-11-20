@@ -1,5 +1,6 @@
 $(document).ready(function(){
 	
+	var settingArr = new Array;
 	logoAnimate(true);
 	
 	function logoAnimate(FlagLogo){
@@ -40,7 +41,7 @@ $(document).ready(function(){
 			
 			var optionBtnCircle = optionBtnCanvas.circle(10, 10, 7);
 			optionBtnCircle.id = $(this).attr('id');
-			optionBtnCircle.attr({'stroke':'none','fill':'#777777'});
+			optionBtnCircle.attr({'stroke':'none','fill':'#a4a4a4'});
 			
 			var optionBtnCircleSelect = optionBtnCanvas.circle(10, 10, 0);
 			optionBtnCircleSelect.id = $(this).attr('id') + '_select';
@@ -61,7 +62,7 @@ $(document).ready(function(){
 				var optionBtnThis = sshowBtn_optionArray[$(this).attr('id')].getById($(this).attr('id'));
 				var optionBtnSelectThis = sshowBtn_optionArray[$(this).attr('id')].getById($(this).attr('id')+'_select');
 				$(this).removeClass( 'sshowBtn_optionSelected' );
-				optionBtnThis.animate({ 'fill' : '#777777', 'r' : 7 }, 300, ">");
+				optionBtnThis.animate({ 'fill' : '#a4a4a4', 'r' : 7 }, 300, ">");
 				optionBtnSelectThis.animate({ 'r' : 0 }, 300, ">");
 			});
 		})
@@ -156,6 +157,7 @@ $(document).ready(function(){
 					go(3);
 				});
 			break;
+			
 			case 3 : 
 				$('#title_img').animate({'margin-top':-100},1000,"easeInOutBack");
 				$('#subtitle_img').delay(200).animate({'margin-top':-50},1000,"easeInOutBack");
@@ -298,8 +300,8 @@ $(document).ready(function(){
 							$('#content_wrap').slideDown(800,"easeInOutExpo");
 						});
 					});
-				} else if ($('#content_content_settingDB').css('display') != 'none'){
-					$('#content_content_settingDB').hide(600,"easeInOutExpo",function(){
+				} else if ($('#content_settingDB').css('display') != 'none'){
+					$('#content_settingDB').hide(600,"easeInOutExpo",function(){
 						$('#content_selectDB').show(600,"easeInOutExpo",function(){
 							$('#content_wrap').slideDown(800,"easeInOutExpo");
 						});
@@ -314,6 +316,22 @@ $(document).ready(function(){
 				prevBtn_circle.animate({ "r" : 22, "fill" : "#d3d3d3" }, 200, ">" );
 				prevBtn_line1.animate({ "path" : "M 20 30 L 37 21", "stroke" : "#7f7f7f" }, 200, ">" );
 				prevBtn_line2.animate({ "path" : "M 20 30 L 37 39", "stroke" : "#7f7f7f" }, 200, ">" );
+			
+				
+				$('#content_selectDB_list').find('.content_selectDB_eleWrap').each(function(){
+					$(this).show();
+				});
+				
+				var selectDB_animationTime = 1;
+
+				$('.content_selectDB_radio').each(function(){
+					$(this).css({'opacity':0});
+					$(this).delay(800).animate({'opacity':1}, 800, "easeInOutExpo");
+				});
+				$('.content_selectDB_name').find('img').each(function(){
+					$(this).css({'margin-left':100, 'opacity' : 0});
+					$(this).delay(700 + 70 * selectDB_animationTime).animate({'margin-left':0, 'opacity' : 1},800 + 100*selectDB_animationTime++,"easeInOutExpo");
+				});
 								
 				
 				$('#prev_btn')
@@ -321,15 +339,127 @@ $(document).ready(function(){
 				.animate({'left' : 245},800,"easeInOutExpo")
 				.on('click',function(){
 
-					go(3)
+					go(3);
 				})
 				$('#next_btn')
 				.stop()
 				.animate({'left' : 295},800,"easeInOutExpo")
 				.on('click',function(){
+					var wrapper = $('#content_selectDB_list').find('.sshowBtn_optionSelected').parent().parent();
+					settingArr['dbtype'] = wrapper.find('img').attr('alt');
+
+					if(typeof settingArr['dbtype'] == 'undefined'){
+						nextBtn_circle.animate({ 'fill' : "#e44651"},100);
+								nextBtn_line1.animate({ "path" : "M 22 22 L 38 38", "stroke" : "#e2e2e2" }, 200, "bounce" );
+								nextBtn_line2.animate({ "path" : "M 38 22 L 22 38", "stroke" : "#e2e2e2" }, 200, "bounce" );
+			
+								$('#next_btn').stop().animate({'left' : 305},600,"easeOutBounce",function(){
+									$('#next_btn').animate({'left' : 295},200,"easeOutBack");
+									nextBtn_circle.animate({ 'fill' : "#777777"},200);
+									nextBtn_line1.animate({ "path" : "M 24 21 L 41 30", "stroke" : "#e2e2e2" }, 100, "bounce" );
+									nextBtn_line2.animate({ "path" : "M 41 30 L 24 39", "stroke" : "#e2e2e2" }, 100, "bounce" );
+						});
+					}else{
+
+						$('#content_settingDB_load').load(_SSHOW_URL_+'common/db/'+settingArr['dbtype']+'/setup.php',function(){
+
+							go(5);
+							
+						});
+						
+					}
+				});
+			break;
+			
+			case 5 :
+				$('#title_img').animate({'margin-top':-200},1000,"easeInOutBack");
+				$('#subtitle_img').delay(200).animate({'margin-top':-100},1000,"easeInOutBack");
+
+				$('#subtitle_wrap').slideDown(800,"easeOutBounce");
+
+				if($('#content_selectDB').css('display') != 'none'){
+					$('#content_selectDB').hide(600,"easeInOutExpo",function(){
+						$('#content_settingDB').show(600,"easeInOutExpo",function(){
+							$('#content_wrap').slideDown(800,"easeInOutExpo");
+						});
+					});
+				} else if ($('#content_settingUser').css('display') != 'none'){
+					$('#content_settingUser').hide(600,"easeInOutExpo",function(){
+						$('#content_selectUser').show(600,"easeInOutExpo",function(){
+							$('#content_wrap').slideDown(800,"easeInOutExpo");
+						});
+					});
+				} else {
+					$('#content_settingDB').show();
+					$('#content_wrap').slideDown(800,"easeInOutExpo");
+				}
+				
+				nextBtn_circle.animate({ "r" : 22, "fill" : "#777777" }, 200, ">" );
+				nextBtn_line1.animate({ "path" : "M 24 21 L 41 30", "stroke" : "#e2e2e2" }, 200, ">" );
+				nextBtn_line2.animate({ "path" : "M 41 30 L 24 39", "stroke" : "#e2e2e2" }, 200, ">" );
+				prevBtn_circle.animate({ "r" : 22, "fill" : "#d3d3d3" }, 200, ">" );
+				prevBtn_line1.animate({ "path" : "M 20 30 L 37 21", "stroke" : "#7f7f7f" }, 200, ">" );
+				prevBtn_line2.animate({ "path" : "M 20 30 L 37 39", "stroke" : "#7f7f7f" }, 200, ">" );		
+				
+				var setArray = $('#content_settingDB_load').html().split(',');
+				var setArrayCount = setArray.length;
+				console.log(setArray);
+				var appendSettingForm = function( key ){
+					var inputType = "text";
+					if(key == "password"){
+						inputType = "password";
+					}
+					return '<div class="content_settingDB_eleWrap">'
+					+	'<div class="content_settingDB_key">'
+					+ 					key.substring(0, 1).toUpperCase() + key.substring(1, key.length).toLowerCase() + '&nbsp;&nbsp;:&nbsp;&nbsp;'
+					+	'</div>'
+					+	'<div class="content_settingDB_input">'
+					+		'<input id="content_settingDB_input_'+ key +'" type="'+ inputType +'" />'
+					+	'</div>'
+					+'</div>';
+				}
+				$('#content_settingDB_content').html('<div class="content_settingDB_img"><img src="'+_SSHOW_URL_+'common/db/'+settingArr['dbtype']+'/logo.png" width="102" height="50" alt="'+settingArr['dbtype']+'" /></div>');
+				for(var i = 0; i < setArrayCount; i++ ){
+					$('#content_settingDB_content').append( appendSettingForm( setArray[i] ) );
+				}
+				$('#content_settingDB input').focus();
+				
+				
+						
+				
+				$('#prev_btn')
+				.stop()
+				.animate({'left' : 245},800,"easeInOutExpo")
+				.on('click',function(){
+
+					go(4);
+				})
+				$('#next_btn')
+				.stop()
+				.animate({'left' : 295},800,"easeInOutExpo")
+				.on('click',function(){
+					var settingValue = "";
+					for(var i = 0; i < setArrayCount; i++){
+						if(i != 0){
+							settingValue+= ",";
+						}
+						settingValue += setArray[i]+":"+$('#content_settingDB_input_'+setArray[i]).val();
+					}
+					console.log(settingValue);
+					
+					$.ajax({
+						type: "POST",
+						url: _SSHOW_URL_+'common/db/'+settingArr['dbtype']+'/action/setup.php',
+						data: { set : settingValue },
+						success: function(e){
+							alert(e);
+						}
+					});
+						//go(6);
 				
 				});
 			break;
+			
 		}
 	}
 	go(1);

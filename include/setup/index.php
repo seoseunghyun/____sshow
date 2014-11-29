@@ -26,6 +26,7 @@ define( '__SSHOW_SETUP_URL__' , _SSHOW_URL_.'include/setup/' );
 	<script type="text/javascript" src="<?=_SSHOW_RAPHAEL_URL_?>"></script>
 	
 	<script type="text/javascript" src="<?=__SSHOW_SETUP_URL__?>js/index.js"></script>
+	<script type="text/javascript" src="<?=__SSHOW_SETUP_URL__?>js/jquery.placeholder.js"></script>
 	
 	<script type="text/javascript">
 	var __SSHOW_SETUP_URL__ = "<?=__SSHOW_SETUP_URL__?>";
@@ -104,13 +105,35 @@ define( '__SSHOW_SETUP_URL__' , _SSHOW_URL_.'include/setup/' );
 			<div id="content_settingDB_content">
 			</div>
 		</div>
-		<div id="content_settingUser" class="content_content" style="width:425px; height:100px;">
-			
+		<div id="content_settingUser" class="content_content">
+
+			<div class="content_input_wrap">
+				<div class="content_input_img">
+					<img src="<?=__SSHOW_SETUP_URL__?>img/icon_human.png" width="25" height="25" />
+				</div>
+				<div class="content_input_input">
+					<input type="text"  placeholder="ID" />
+				</div>
+			</div>
+			<div class="content_input_wrap">
+				<div class="content_input_img">
+					<img src="<?=__SSHOW_SETUP_URL__?>img/icon_password.png" width="25" height="25" />
+				</div>
+				<div class="content_input_input">
+					<input type="password"  placeholder="Password" />
+				</div>
+			</div>
+
+		</div>
+		<div id="content_complete" class="content_content">
 		</div>
 	</div>
 	<div id="btn_wrap">
 		<div id="prev_btn" class="setup_button"></div>
 		<div id="next_btn" class="setup_button"></div>
+	</div>
+	<div id="complete_wrap">
+		<img src="<?=__SSHOW_SETUP_URL__?>img/final_background.png" height="238" />
 	</div>
 </div>
 

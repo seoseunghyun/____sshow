@@ -42,8 +42,8 @@ $sshowClass_DB = null;
 $sshowXML_config = null;
 
 // Check Client Config. (Life User's Platform)
-require( _SSHOW_DIR_.'core/detector.php' );
 require( _SSHOW_DIR_.'core/config.php' );
+require( _SSHOW_DIR_.'core/detector.php' );
 require( _SSHOW_DIR_.'core/queryParser.php' );
 
 // Import Useful Other Class.

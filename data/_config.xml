@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<sshow> 
+    <db>
+	    <type>mysql</type>
+	    <dbname>sshow</dbname>
+	    <hostname>localhost</hostname>
+	    <username>root</username>
+	    <password>8159742a</password>
+    </db>
+</sshow>

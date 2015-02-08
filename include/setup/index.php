@@ -112,7 +112,7 @@ define( '__SSHOW_SETUP_URL__' , _SSHOW_URL_.'include/setup/' );
 					<img src="<?=__SSHOW_SETUP_URL__?>img/icon_human.png" width="25" height="25" />
 				</div>
 				<div class="content_input_input">
-					<input type="text"  placeholder="ID" />
+					<input id="content_settingUser_input_id" type="text"  placeholder="ID" />
 				</div>
 			</div>
 			<div class="content_input_wrap">
@@ -120,7 +120,7 @@ define( '__SSHOW_SETUP_URL__' , _SSHOW_URL_.'include/setup/' );
 					<img src="<?=__SSHOW_SETUP_URL__?>img/icon_password.png" width="25" height="25" />
 				</div>
 				<div class="content_input_input">
-					<input type="password"  placeholder="Password" />
+					<input id="content_settingUser_input_password" type="password"  placeholder="Password" />
 				</div>
 			</div>
 

@@ -16,8 +16,8 @@ if( file_exists( _SSHOW_DIR_.'data/config.xml' ) ) {
 	
 	$sshowClass_DB->connectDB();
 	//$sshowDB->initConfig();
-	$sshowMain_config = $sshowClass_DB->getConfig();
-	$sshowMain_content = $sshowClass_DB->getContent();
+	//$sshowMain_config = $sshowClass_DB->getConfig();
+	//$sshowMain_content = $sshowClass_DB->getContent();
 	
 	$sshowDisplay = 'main';
 

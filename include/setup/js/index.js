@@ -346,9 +346,10 @@ $(document).ready(function(){
 				.animate({'left' : 295},800,"easeInOutExpo")
 				.on('click',function(){
 					var wrapper = $('#content_selectDB_list').find('.sshowBtn_optionSelected').parent().parent();
-					settingArr['dbtype'] = wrapper.find('img').attr('alt');
+					settingArr.db = {};
+					settingArr.db['type'] = wrapper.find('img').attr('alt');
 
-					if(typeof settingArr['dbtype'] == 'undefined'){
+					if(typeof settingArr.db['type'] == 'undefined'){
 						nextBtn_circle.animate({ 'fill' : "#e44651"},100);
 								nextBtn_line1.animate({ "path" : "M 22 22 L 38 38", "stroke" : "#e2e2e2" }, 200, "bounce" );
 								nextBtn_line2.animate({ "path" : "M 38 22 L 22 38", "stroke" : "#e2e2e2" }, 200, "bounce" );
@@ -361,7 +362,7 @@ $(document).ready(function(){
 						});
 					}else{
 
-						$('#content_settingDB_load').load(_SSHOW_URL_+'common/db/'+settingArr['dbtype']+'/setup.php',function(){
+						$('#content_settingDB_load').load(_SSHOW_URL_+'common/db/'+settingArr.db['type']+'/setup.php',function(){
 
 							go(5);
 							
@@ -412,17 +413,6 @@ $(document).ready(function(){
 					if(key == "password"){
 						inputType = "password";
 					}
-					/*
-return '<div class="content_settingDB_eleWrap">'
-					+	'<div class="content_settingDB_key">'
-					+ 					key.substring(0, 1).toUpperCase() + key.substring(1, key.length).toLowerCase() + '&nbsp;&nbsp;:&nbsp;&nbsp;'
-					+	'</div>'
-					+	'<div class="content_settingDB_input">'
-					+		'<input id="content_settingDB_input_'+ key +'" type="'+ inputType +'" />'
-					+	'</div>'
-					+'</div>';
-*/
-				//console.log(settingArr[key]);
 				return 	'<div class="content_input_wrap">'
 				+			'<div class="content_input_img">'
 				+				'<img src="'+__SSHOW_SETUP_URL__+'img/input_'+key+'.png" width="25" height="25" />'
@@ -434,7 +424,7 @@ return '<div class="content_settingDB_eleWrap">'
 				
 				
 				}
-				$('#content_settingDB_content').html('<div class="content_settingDB_img"><img src="'+_SSHOW_URL_+'common/db/'+settingArr['dbtype']+'/logo.png" width="102" height="50" alt="'+settingArr['dbtype']+'" /></div>');
+				$('#content_settingDB_content').html('<div class="content_settingDB_img"><img src="'+_SSHOW_URL_+'common/db/'+settingArr.db['type']+'/logo.png" width="102" height="50" alt="'+settingArr.db['type']+'" /></div>');
 				for(var i = 0; i < setArrayCount; i++ ){
 					$('#content_settingDB_content').append( appendSettingForm( setArray[i] ) );
 				}
@@ -461,18 +451,23 @@ return '<div class="content_settingDB_eleWrap">'
 						}
 						settingValue += setArray[i]+":"+$('#content_settingDB_input_'+setArray[i]).val();
 					}
-					//console.log(settingValue);
 					
 					$.ajax({
 						type: "POST",
-						url: _SSHOW_URL_+'common/db/'+settingArr['dbtype']+'/action/setup.php',
+						url: _SSHOW_URL_+'common/db/'+settingArr.db['type']+'/action/setup.php',
 						data: { set : settingValue },
 						success: function(e){
-							console.log(settingArr);
-							alert(e);
+							if(e == '1'){
+								for(var i = 0; i < setArrayCount; i++){
+									settingArr.db[setArray[i]] = $('#content_settingDB_input_'+setArray[i]).val();
+								}
+								go(6);
+							}else{
+								alert(e);
+							}
 						}
 					});
-						go(6);
+
 				
 				});
 			break;
@@ -549,6 +544,10 @@ return '<div class="content_settingDB_eleWrap">'
 				prevBtn_line1.animate({ "path" : "M 20 30 L 37 21", "stroke" : "#7f7f7f" }, 800, ">" );
 				prevBtn_line2.animate({ "path" : "M 20 30 L 37 39", "stroke" : "#7f7f7f" }, 800, ">" );		
 				
+				settingArr.user = {
+					id : $('#content_settingUser_input_id').val(),
+					password : $('#content_settingUser_input_password').val()
+				};
 						
 				
 				$('#prev_btn')
@@ -577,6 +576,7 @@ return '<div class="content_settingDB_eleWrap">'
 					.stop()
 					.animate({'left':270},500,"easeInOutExpo",function(){
 						$('#title_img').animate({'margin-top':-350},400,"easeInOutBack");
+						console.log(settingArr);
 						$('#subtitle_img').delay(200).animate({'margin-top':-200},500,"easeInOutBack",function(){
 							$('#logo_wrap').hide(800,"easeInOutBack");
 							$('#title_wrap').hide(800,"easeInOutBack");
